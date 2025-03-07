@@ -1,0 +1,20 @@
+{
+  "name": "threejs-demo3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescipt": "^1.0.0",
+    "vite": "^6.2.1"
+  },
+  "dependencies": {
+    "three": "^0.174.0"
+  }
+}
