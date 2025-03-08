@@ -7,7 +7,7 @@ class CutstomRender extends BaseRender {
     constructor(){
         super(undefined,{});
         this.addOrbitController()
-        this.camera.position.set( 0, 0, 10 );
+        this.camera.position.set( 0, 10, 10 );
 
         // this.addGridHelper()
 
@@ -26,7 +26,7 @@ class CutstomRender extends BaseRender {
         controls.autoRotate = true
         controls.autoRotateSpeed = 1
         controls.enableDamping = true
-        controls.enableZoom = false
+        // controls.enableZoom = false
     }
 
     addViewGeometryWithTexture(){
@@ -40,7 +40,7 @@ class CutstomRender extends BaseRender {
         const mesh = new THREE.Mesh(geometry,material)
         this.scene.add(mesh)
 
-        // 添加贴图之后缩放相机
+        // 添加贴图之后缩放物体
         mesh.geometry.scale(5,5,-5)
     }
 
@@ -66,9 +66,8 @@ class CutstomRender extends BaseRender {
         const textureLoader = new THREE.TextureLoader();
         const textures:THREE.MeshBasicMaterial[] = []
         images.forEach((item,index)=>{
-            console.log(item)
+            // load函数参数：路径,加载成功的回调,过程回调，加载失败的回调  url : String, onLoad : Function, onProgress : Function, onError : Function 
             textureLoader.load(item,(texture)=>{
-                console.log(texture)
                 const material = new THREE.MeshBasicMaterial( { map:texture } );
                 textures.push(material)
             },undefined,()=>{})
@@ -77,8 +76,8 @@ class CutstomRender extends BaseRender {
         const cube = new THREE.Mesh( geometry, textures );
         // this.scene.add( mesh );
         this.scene.add(cube)
-        this.renderer.render(this.scene, this.camera);
-        // 添加贴图之后缩放相机
+        // this.renderer.render(this.scene, this.camera);
+        // 添加贴图之后缩放物体
         cube.geometry.scale(5,5,-5)
     }
     addGridHelper(){
